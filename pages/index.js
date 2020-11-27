@@ -4,11 +4,10 @@ import Home from "../components/Home";
 
 export default function App() {
   return (
-    <>
-      <Header />
+    <Box>
       <Box as="main">
         <Home />
       </Box>
-    </>
+    </Box>
   );
 }

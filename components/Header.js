@@ -1,8 +1,8 @@
-import { Box, Flex, Image, Input, Icon } from "@chakra-ui/react";
+import { Box, Flex, Image, Input, Icon, Link } from "@chakra-ui/react";
 import React from "react";
 
 //icon
-import { MdSearch, MdShoppingCart } from "react-icons/md";
+import { MdSearch } from "react-icons/md";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const Header = () => {
@@ -26,6 +26,7 @@ const Header = () => {
 
   return (
     <Flex
+      as="header"
       zIndex="100"
       top="0"
       position="sticky"
@@ -34,7 +35,9 @@ const Header = () => {
       backgroundColor={"#131921"}
     >
       <Box width="100px" objectFit="contain" margin="0 20px" mt="18px">
-        <Image src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+        <Link href="/">
+          <Image src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+        </Link>
       </Box>
       <Box display="flex" flex="1" alignItems="center" borderRadius="24px">
         <Input
@@ -46,6 +49,7 @@ const Header = () => {
           width="100%"
           type="text"
         />
+
         <Icon
           borderRightRadius="5px"
           backgroundColor={"#cd9042"}
@@ -70,8 +74,10 @@ const Header = () => {
         </Option>
       </Options>
       <Flex color="white" alignItems="center">
-        <Icon boxSize={5} as={HiOutlineShoppingCart} />
-        <OptionLine2 mx="10px">0</OptionLine2>
+        <Link href="/checkout">
+          <Icon boxSize={5} as={HiOutlineShoppingCart} />
+          <OptionLine2 mx="10px">0</OptionLine2>
+        </Link>
       </Flex>
     </Flex>
   );
