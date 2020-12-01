@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
-    <Box as="body" backgroundColor="rgb(234,237,237)">
+    <Box as="section" backgroundColor="rgb(234,237,237)">
       <Header />
       {children}
     </Box>

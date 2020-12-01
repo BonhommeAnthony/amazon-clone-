@@ -1,13 +1,17 @@
 import { Box } from "@chakra-ui/react";
-import Header from "../components/Header";
+import { useEffect } from "react";
+
 import Home from "../components/Home";
+import Layout from "../components/Layout";
+import { auth } from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 export default function App() {
   return (
-    <Box>
+    <Layout>
       <Box as="main">
         <Home />
       </Box>
-    </Box>
+    </Layout>
   );
 }

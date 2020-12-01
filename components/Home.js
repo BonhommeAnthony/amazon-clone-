@@ -1,4 +1,4 @@
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Box, Flex, Image, Img } from "@chakra-ui/react";
 import React from "react";
 import Product from "./Product";
 
@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <Flex maxW="1500px" justifyContent="center" marginX="auto" className="home">
       <Box className="home-container">
-        <Image
+        <Img
           width="100%"
           zIndex="-1"
           marginBottom="-150px"
@@ -25,13 +25,13 @@ const Home = () => {
         <HomeRow>
           <Product
             id="1234764"
-            title="The lean startup"
+            title="Switch"
             price={299.99}
             image="https://images-na.ssl-images-amazon.com/images/I/71r5EDssKdL._AC_SL1500_.jpg"
             rating={5}
           />
           <Product
-            id="1237894"
+            id="123789674"
             title="Think like a monk by Jay Shetty"
             price={19.99}
             image="https://images-na.ssl-images-amazon.com/images/I/81s6DUyQCZL.jpg"

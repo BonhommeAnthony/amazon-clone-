@@ -1,8 +1,26 @@
-import { Box, Text, Image, Button, Flex } from "@chakra-ui/react";
+import { Box, Text, Image, Button, Flex, Img } from "@chakra-ui/react";
 import React from "react";
+import { useStateValue } from "../StateProvider";
 import ButtonAmazon from "./Form/ButtonAmazon";
 
 const Product = ({ title, image, price, rating, id }) => {
+  const [{ basket }, dispatch] = useStateValue();
+
+  console.log("basket product.js", basket);
+
+  const addToBasket = () => {
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
+
   return (
     <Flex
       m="10px"
@@ -31,14 +49,14 @@ const Product = ({ title, image, price, rating, id }) => {
             ))}
         </Flex>
       </Box>
-      <Image
+      <Img
         maxH="200px"
         width="100%"
         objectFit="contain"
         mb="15px"
         src={image}
       />
-      <ButtonAmazon>Add to cart</ButtonAmazon>
+      <ButtonAmazon onClick={addToBasket}>Add to cart</ButtonAmazon>
     </Flex>
   );
 };

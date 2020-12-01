@@ -1,9 +1,12 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
 
-const ButtonAmazon = ({ children }) => {
+const ButtonAmazon = ({ children, onClick, width, type }) => {
   return (
     <Button
+      type={type}
+      onClick={onClick}
+      width={width}
       background="#f0c14b"
       borderRadius="2px"
       border="1px solid"

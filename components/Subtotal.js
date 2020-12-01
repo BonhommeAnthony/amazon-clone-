@@ -1,9 +1,13 @@
 import { Box, Button, Input, Text, Flex, Checkbox } from "@chakra-ui/react";
 import React from "react";
 import CurrencyFormat from "react-currency-format";
+import { getBasketTotal } from "../reducer";
+import { useStateValue } from "../StateProvider";
 import ButtonAmazon from "./Form/ButtonAmazon";
 
 const Subtotal = () => {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <Flex
       direction="column"
@@ -20,8 +24,9 @@ const Subtotal = () => {
         renderText={(value) => (
           <>
             <Text as="p">
-              Subtotal (0 items):
-              <strong>0</strong>
+              Subtotal ({basket.length} {basket.length <= 1 ? "Item" : "Items"}{" "}
+              ):
+              <strong>{value}</strong>
             </Text>
             <Text
               as="small"
@@ -34,7 +39,7 @@ const Subtotal = () => {
           </>
         )}
         decimalScale={2}
-        value={0}
+        value={getBasketTotal(basket)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"€"}
