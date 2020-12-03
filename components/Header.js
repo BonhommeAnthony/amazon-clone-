@@ -82,10 +82,10 @@ const Header = () => {
 
       <Options>
         <Option onClick={handleAuthentication} href={!user ? "/login" : "/"}>
-          <OptionLine1>{user ? user.email : "Hello Guest"}</OptionLine1>
+          <OptionLine1>Hello {user ? user.email : " Guest"}</OptionLine1>
           <OptionLine2>{user ? "Sign-Out" : "sign-In"}</OptionLine2>
         </Option>
-        <Option href="/">
+        <Option href="/orders">
           <OptionLine1> Returns</OptionLine1>
           <OptionLine2>Orders</OptionLine2>
         </Option>

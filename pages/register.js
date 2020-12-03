@@ -73,7 +73,7 @@ const register = () => {
               .createUserWithEmailAndPassword(values.email, values.password)
               .then((auth) => {
                 console.log(auth);
-                if (user) {
+                if (auth) {
                   router.push("/");
                 }
               })

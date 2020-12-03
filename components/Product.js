@@ -2,11 +2,12 @@ import { Box, Text, Image, Button, Flex, Img } from "@chakra-ui/react";
 import React from "react";
 import { useStateValue } from "../StateProvider";
 import ButtonAmazon from "./Form/ButtonAmazon";
+import { motion } from "framer-motion";
+
+const MotionProduct = motion.custom(Flex);
 
 const Product = ({ title, image, price, rating, id }) => {
   const [{ basket }, dispatch] = useStateValue();
-
-  console.log("basket product.js", basket);
 
   const addToBasket = () => {
     dispatch({
@@ -22,7 +23,9 @@ const Product = ({ title, image, price, rating, id }) => {
   };
 
   return (
-    <Flex
+    <MotionProduct
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
       m="10px"
       p="20px"
       width="100%"
@@ -45,7 +48,7 @@ const Product = ({ title, image, price, rating, id }) => {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <Text>⭐</Text>
+              <Text key={i}>⭐</Text>
             ))}
         </Flex>
       </Box>
@@ -57,7 +60,7 @@ const Product = ({ title, image, price, rating, id }) => {
         src={image}
       />
       <ButtonAmazon onClick={addToBasket}>Add to cart</ButtonAmazon>
-    </Flex>
+    </MotionProduct>
   );
 };
 

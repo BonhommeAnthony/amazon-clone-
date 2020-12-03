@@ -4,8 +4,10 @@ import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import ButtonAmazon from "./Form/ButtonAmazon";
+import { useRouter } from "next/router";
 
 const Subtotal = () => {
+  const router = useRouter();
   const [{ basket }, dispatch] = useStateValue();
 
   return (
@@ -44,7 +46,9 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"€"}
       />
-      <ButtonAmazon>Proceed to Checkout</ButtonAmazon>
+      <ButtonAmazon onClick={(e) => router.push("/payment")}>
+        Proceed to Checkout
+      </ButtonAmazon>
     </Flex>
   );
 };
