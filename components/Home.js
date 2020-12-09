@@ -4,9 +4,9 @@ import Product from "./Product";
 
 const Home = () => {
   const HomeRow = ({ children }) => (
-    <Flex zIndex="1" mx="5px">
+    <Box display={["box", "flex"]} zIndex="1" m="5px">
       {children}
-    </Flex>
+    </Box>
   );
   return (
     <Flex maxW="1500px" justifyContent="center" marginX="auto" className="home">
@@ -14,7 +14,7 @@ const Home = () => {
         <Img
           width="100%"
           zIndex="-1"
-          marginBottom="-150px"
+          marginBottom={["0", "-150px"]}
           style={{
             WebkitMaskImage:
               "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
@@ -41,14 +41,14 @@ const Home = () => {
         <HomeRow>
           <Product
             id="145337894"
-            title="Balance connectee bluetooth"
+            title="Balance Connectée bluetooth"
             price={29.99}
             image="https://images-na.ssl-images-amazon.com/images/I/61eAezTS37L._AC_SX466_.jpg"
             rating={5}
           />
           <Product
             id="12378ffwe94"
-            title="Amazon echo dot"
+            title="Amazon Echo Dot"
             price={99.99}
             image="https://dyw7ncnq1en5l.cloudfront.net/optim/produits/439/46219/amazon-echo-dot-nouvelle-generation_7252a9882d29f4cb__450_400.jpg"
             rating={5}

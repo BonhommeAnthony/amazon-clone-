@@ -20,8 +20,9 @@ const Order = ({ order }) => {
       <Text position="absolute" top="40px" right="20px" name="order__id">
         <small>{order.id}</small>
       </Text>
-      {order.data.basket?.map((item) => (
+      {order.data.basket?.map((item, i) => (
         <CheckoutProduct
+          key={i}
           id={item.id}
           price={item.price}
           rating={item.rating}

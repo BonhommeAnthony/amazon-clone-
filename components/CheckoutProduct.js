@@ -14,7 +14,12 @@ const CheckoutProduct = ({ id, image, title, price, rating, hideButton }) => {
   };
 
   return (
-    <Flex key={id} className="checkoutProduct" my="20px">
+    <Flex
+      display={["Box", "flex"]}
+      key={id}
+      className="checkoutProduct"
+      my="20px"
+    >
       <Img src={image} objectFit="contain" boxSize="180px" />
       <Box className="CheckoutProduct__info" paddingLeft="20px">
         <Text fontSize="17px" fontWeight="800">
@@ -28,12 +33,12 @@ const CheckoutProduct = ({ id, image, title, price, rating, hideButton }) => {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <Text>⭐</Text>
+              <Text key={i}>⭐</Text>
             ))}
         </Flex>
         {!hideButton && (
           <ButtonAmazon onClick={removeFromBasket}>
-            Remove From Basket
+            Retirer Du Panier
           </ButtonAmazon>
         )}
       </Box>

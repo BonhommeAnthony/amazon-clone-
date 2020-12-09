@@ -30,7 +30,7 @@ const payment = () => {
   };
 
   const PaymentTitle = ({ children }) => (
-    <Box flex="0.2">
+    <Box mr="10px" flex="0.2">
       <Heading fontSize="18px" as="h3">
         {children}
       </Heading>
@@ -50,24 +50,24 @@ const payment = () => {
             borderBottom="1px solid lightgray"
             fontSize="30px"
           >
-            Checkout(
+            Panier(
             <Box
               as="span"
               cursor="pointer"
               onClick={(e) => router.push("/checkout")}
             >
-              {basket?.length} items{" "}
+              {basket?.length} Objets{" "}
             </Box>
             )
           </Heading>
           <PaymentSection>
-            <PaymentTitle>Delivery Adress</PaymentTitle>
+            <PaymentTitle>Adresse Mail</PaymentTitle>
             <Box name="payment__address" flex="0.8">
               <Text>{user?.email}</Text>
             </Box>
           </PaymentSection>
           <PaymentSection>
-            <PaymentTitle as="h3">Review Items and delivery</PaymentTitle>
+            <PaymentTitle as="h3">Votre commande</PaymentTitle>
 
             <Box name="payment__items" flex="0.8">
               {basket.map((item) => {
@@ -84,7 +84,7 @@ const payment = () => {
             </Box>
           </PaymentSection>
           <PaymentSection>
-            <PaymentTitle>Payment Method</PaymentTitle>
+            <PaymentTitle>Paiements</PaymentTitle>
             <Box name="payment__details" flex="0.8">
               <Elements stripe={stripePromise}>
                 <CheckoutForm />

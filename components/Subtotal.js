@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 const Subtotal = () => {
   const router = useRouter();
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   return (
     <Flex
@@ -26,7 +26,7 @@ const Subtotal = () => {
         renderText={(value) => (
           <>
             <Text as="p">
-              Subtotal ({basket.length} {basket.length <= 1 ? "Item" : "Items"}{" "}
+              Total ({basket.length} {basket.length <= 1 ? "Objet" : "Objets"}{" "}
               ):
               <strong>{value}</strong>
             </Text>
@@ -36,7 +36,7 @@ const Subtotal = () => {
               display="flex"
               alignItems="center"
             >
-              <Checkbox mr="5px" /> This order contains a gift
+              <Checkbox mr="5px" /> Cette commande contient un cadeau
             </Text>
           </>
         )}
@@ -46,9 +46,15 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"€"}
       />
-      <ButtonAmazon onClick={(e) => router.push("/payment")}>
-        Proceed to Checkout
-      </ButtonAmazon>
+      {user ? (
+        <ButtonAmazon onClick={(e) => router.push("/payment")}>
+          procéder au paiement
+        </ButtonAmazon>
+      ) : (
+        <ButtonAmazon onClick={(e) => router.push("/login")}>
+          Se connecter
+        </ButtonAmazon>
+      )}
     </Flex>
   );
 };

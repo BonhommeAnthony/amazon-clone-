@@ -27,13 +27,13 @@ const orders = () => {
 
   return (
     <Layout>
-      <Box padding="20px 80px" name="orders">
+      <Box padding={["0", "20px 80px"]} name="orders">
         <Heading m="30px 0" as="h1">
           Your Orders
         </Heading>
         <Box name="orders__order">
-          {orders?.map((order) => (
-            <Order order={order} />
+          {orders?.map((order, i) => (
+            <Order key={i} order={order} />
           ))}
         </Box>
       </Box>

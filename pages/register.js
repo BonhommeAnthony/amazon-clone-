@@ -63,7 +63,7 @@ const register = () => {
         height="fit-content"
       >
         <Heading as="h1" fontWeight="500" mb="20px">
-          Sign-up
+          Créer votre compte
         </Heading>
 
         <Formik
@@ -101,12 +101,12 @@ const register = () => {
                     mb="10px"
                     isInvalid={form.errors.password && form.touched.password}
                   >
-                    <FormLabel htmlFor="password">Password</FormLabel>
+                    <FormLabel htmlFor="password">Mot de passe</FormLabel>
                     <Input
                       type="password"
                       {...field}
                       id="Password"
-                      placeholder="Password"
+                      placeholder="Mot de passe"
                     />
                     <FormErrorMessage>{form.errors.password}</FormErrorMessage>
                   </FormControl>
@@ -124,15 +124,15 @@ const register = () => {
                 colorScheme="teal"
                 type="submit"
               >
-                Submit
+                Créer
               </Button>
             </Form>
           )}
         </Formik>
-        <Text mt="10px">Already an account ?</Text>
+        <Text mt="10px">Déjà un compte ?</Text>
         <NextLink href="/login">
           <ButtonAmazon mt="10px" type="submit" width="100%">
-            Sign in
+            Se connecter
           </ButtonAmazon>
         </NextLink>
       </Flex>

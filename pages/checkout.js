@@ -16,7 +16,8 @@ const checkout = () => {
 
   return (
     <Layout>
-      <Flex
+      <Box
+        display={["box", "flex"]}
         className="checkout"
         padding="20px"
         backgroundColor="white"
@@ -32,7 +33,7 @@ const checkout = () => {
             <Heading as="h3" fontWeight="400">
               {user ? `Hello ${user.email}` : null}
             </Heading>
-            <CheckoutTitle>Your shopping Cart</CheckoutTitle>
+            <CheckoutTitle>Votre panier</CheckoutTitle>
           </Box>
           {basket.map((item) => {
             return (
@@ -51,7 +52,7 @@ const checkout = () => {
           <Subtotal />
           {/* <CheckoutTitle>the subtotal will go her</CheckoutTitle> */}
         </Box>
-      </Flex>
+      </Box>
     </Layout>
   );
 };

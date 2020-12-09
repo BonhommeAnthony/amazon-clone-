@@ -80,9 +80,8 @@ const CheckoutForm = () => {
           renderText={(value) => (
             <>
               <Text as="p">
-                Subtotal ({basket.length}{" "}
-                {basket.length <= 1 ? "Item" : "Items"} ) :
-                <strong> {value} </strong>
+                Total ({basket.length} {basket.length <= 1 ? "Objet" : "Objets"}{" "}
+                ) :<strong> {value} </strong>
               </Text>
               <Text
                 as="small"
@@ -90,7 +89,7 @@ const CheckoutForm = () => {
                 display="flex"
                 alignItems="center"
               >
-                <Checkbox mr="5px" /> This order contains a gift
+                <Checkbox mr="5px" /> Cette commande contient un cadeau
               </Text>
             </>
           )}
@@ -104,7 +103,7 @@ const CheckoutForm = () => {
           type="submit"
           disabled={processing || disabled || succeeded}
         >
-          <Box as="span">{processing ? "Processing" : "Buy Now"}</Box>
+          <Box as="span">{processing ? "En cours" : "Acheter Maintenant"}</Box>
         </ButtonAmazon>
       </Box>
       {error && <Box>{error}</Box>}

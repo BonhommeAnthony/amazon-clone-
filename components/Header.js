@@ -7,13 +7,16 @@ import { MdSearch } from "react-icons/md";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
   const [{ basket, user }, dispatch] = useStateValue();
 
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
+      router.push("/");
     }
   };
 
@@ -53,14 +56,24 @@ const Header = () => {
       alignItems="center"
       backgroundColor={"#131921"}
     >
-      <Box width="100px" objectFit="contain" margin="0 20px" mt="18px">
+      <Box
+        width={["50px", "100px"]}
+        objectFit="contain"
+        margin="0 20px"
+        mt="18px"
+      >
         <NextLink href="/">
           <Link>
             <Image src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
           </Link>
         </NextLink>
       </Box>
-      <Box display="flex" flex="1" alignItems="center" borderRadius="24px">
+      <Box
+        display={["none", "flex"]}
+        flex="1"
+        alignItems="center"
+        borderRadius="24px"
+      >
         <Input
           borderRightRadius="0"
           bg="white"
@@ -82,16 +95,12 @@ const Header = () => {
 
       <Options>
         <Option onClick={handleAuthentication} href={!user ? "/login" : "/"}>
-          <OptionLine1>Hello {user ? user.email : " Guest"}</OptionLine1>
-          <OptionLine2>{user ? "Sign-Out" : "sign-In"}</OptionLine2>
+          <OptionLine1>Bonjour {user ? user.email : ""}</OptionLine1>
+          <OptionLine2>{user ? "Se déconnecter" : "Se connecter"}</OptionLine2>
         </Option>
         <Option href="/orders">
-          <OptionLine1> Returns</OptionLine1>
-          <OptionLine2>Orders</OptionLine2>
-        </Option>
-        <Option href="/">
-          <OptionLine1>Your</OptionLine1>
-          <OptionLine2>Prime</OptionLine2>
+          <OptionLine1> Retour</OptionLine1>
+          <OptionLine2>Commandes</OptionLine2>
         </Option>
       </Options>
       <Flex color="white" alignItems="center">

@@ -26,7 +26,8 @@ const Product = ({ title, image, price, rating, id }) => {
     <MotionProduct
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      m="10px"
+      m={["0", "10px"]}
+      my="10px"
       p="20px"
       width="100%"
       maxH="400px"
@@ -59,7 +60,7 @@ const Product = ({ title, image, price, rating, id }) => {
         mb="15px"
         src={image}
       />
-      <ButtonAmazon onClick={addToBasket}>Add to cart</ButtonAmazon>
+      <ButtonAmazon onClick={addToBasket}>Ajouter au panier</ButtonAmazon>
     </MotionProduct>
   );
 };
