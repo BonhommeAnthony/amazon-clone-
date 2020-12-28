@@ -61,7 +61,7 @@ const payment = () => {
             )
           </Heading>
           <PaymentSection>
-            <PaymentTitle>Adresse Mail</PaymentTitle>
+            <PaymentTitle>Adresse eMail</PaymentTitle>
             <Box name="payment__address" flex="0.8">
               <Text>{user?.email}</Text>
             </Box>

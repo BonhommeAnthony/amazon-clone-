@@ -123,7 +123,7 @@ const login = () => {
                 colorScheme="teal"
                 type="submit"
               >
-                Connection
+                Connexion
               </Button>
             </Form>
           )}
